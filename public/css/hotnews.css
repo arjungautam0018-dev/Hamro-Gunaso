@@ -1,0 +1,69 @@
+body{
+    margin: 0;
+}
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 0px 30px;
+}
+#left-side-of-nav {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+#right-side-of-nav{
+    padding: 10px 20px;
+}
+
+#left-navimg {
+    height: 50px;
+    width: auto;
+    margin-right: 0px;
+}
+.left_Gunaso, .right_Gunaso {
+    margin: 0 0px;
+    font-family: Arial, sans-serif;
+}
+.left_Gunaso{
+    color: rgb(220, 20, 60);
+    font-weight: 700;
+    font-size: 21px;
+}
+.right_Gunaso{
+    color: rgb(0, 56, 147);
+    font-weight: 700;
+    font-size: 21px;
+}
+.buttons-quicks{
+    padding: 8px 10px;
+    border-radius: 12px;
+    background-color: white;
+    border: none;
+    font-size: 18px;
+    min-width: 80px;
+    margin: 0 0px;
+    font-family: Arial, sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+}
+.buttons-quicks:hover{
+    background-color: whitesmoke;
+}
+#home-link{
+    color: white;
+    background-color: crimson;
+    font-weight: 700;
+    
+}
+.quickies{
+    display: flex;
+    gap: 10px;
+}
+.divider {
+    border: none;
+    height: 3px;
+    background-color: rgb(0, 56, 147);
+    border-radius: 2px;
+    margin: 5px 0;
+    width: 100%; 
+}

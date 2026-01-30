@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See more about the specific Gunaso and present your individual gunaso.</title>
+    <link rel="stylesheet" href="/css/detail_gunaso.css">
+</head>
+<body>
+        <div class="nav-bar">
+            <div id="left-side-of-nav">
+                <img src="/elements/logo_gunaso.ico" alt="Logo_" id="left-navimg">
+                <div class="text-gunaso">
+                    <span class="left_Gunaso">Gunaso</span>
+                    <span class="right_Gunaso"> Nepal</span>
+                </div>
+            </div>
+            <div id="right-side-of-nav">
+                <div class="quickies">
+                    <!-- GO TO HOMEPAGE -->
+                    <a href="/homepage">
+                        <button class="buttons-quicks" >Home</button>
+                    </a>
+
+                    <!-- GO TO SUBMISSION -->
+                    <a href="/submit">
+                        <button class="buttons-quicks">Submit Guanso</button>
+                    </a>
+
+                    <!-- GO TO TRENDING -->
+                    <a href="/trending">
+                        <button class="buttons-quicks" id="home-link">Trending Gunaso</button>
+                    </a>
+
+                    <!-- GO TO HOT NEWS -->
+                     <a href="/hotnews">
+                         <button class="buttons-quicks">Hot News</button>
+                     </a>
+
+                     <!-- GO TO SUPPORT US -->
+                     <a href="/support">
+                         <button class="buttons-quicks">Support Us</button>
+                     </a>
+
+                     <!-- GO TO FEEDBACK -->
+                      <a href="/feedback">
+                          <button class="buttons-quicks">Feedback</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="main-body">
+            <div class="main-body-1">
+
+                <a href="/trending" class="back-to-feed">
+                    
+        <div class="quick-nav">
+            <div class="svg-quick-nav">
+                <svg width="64px" height="64px" viewBox="0 0 72 72" id="emoji" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="color"></g> <g id="hair"></g> <g id="skin"></g> <g id="skin-shadow"></g> <g id="line"> <polyline fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" points="46.1964,16.2048 26.8036,35.6651 46.1964,55.1254"></polyline> </g> </g></svg>                
+            </div>
+            <h3>Back to Feed</h3>
+        </div>
+    </a>
+    
+    
+    <div class="datas" id="datas">
+        <!-- To put -->
+        
+        
+    </div>
+</div>
+
+                <div class="comment-section">
+
+                    <div class="comment-heading">
+                    <svg class="comment-heading-svg" width="256px" height="256px" viewBox="0 0 32.00 32.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>comment-1</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-100.000000, -255.000000)" fill="#000000"> <path d="M116,281 C114.832,281 113.704,280.864 112.62,280.633 L107.912,283.463 L107.975,278.824 C104.366,276.654 102,273.066 102,269 C102,262.373 108.268,257 116,257 C123.732,257 130,262.373 130,269 C130,275.628 123.732,281 116,281 L116,281 Z M116,255 C107.164,255 100,261.269 100,269 C100,273.419 102.345,277.354 106,279.919 L106,287 L113.009,282.747 C113.979,282.907 114.977,283 116,283 C124.836,283 132,276.732 132,269 C132,261.269 124.836,255 116,255 L116,255 Z" id="comment-1" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
+                    Discussion
+                    </div>
+
+                    <form class="comment-input-section" action="/api/gunaso/:id/comment" method="post">
+                        <textarea name="commentText" id="comment-input" cols="30" rows="4" placeholder="Write your comment here..."></textarea>
+                        <button id="submit-comment-btn" type="submit">
+
+                                Comment
+                        </button>
+                    </form>
+
+
+                    <div class="all-comments" id="comment-container">
+
+                    </div>
+
+                </div>
+                
+    </div>
+
+
+        
+</body>
+<script src="/js/detail_gunaso.js"></script>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="/elements/logo_gunaso.ico" class="logo" id="title_logo">
+    <title>Submit Your Gunaso Now! Make a change</title>
+    <meta name="description"
+        content="A Website for the Nepalese to give their complaints anonymously. We vision to give security to people to raise their voices for the nation. Fully anonymously no data taken except the data provided by the user. No need of any login or signup">
+    <link rel="stylesheet" href="/css/submit.css">
+</head>
+
+<body>
+    <div class="main-body">
+        <div class="nav-bar">
+            <div id="left-side-of-nav">
+                <img src="/elements/logo_gunaso.ico" alt="Logo_" id="left-navimg">
+                <div class="text-gunaso">
+                    <span class="left_Gunaso">Gunaso</span>
+                    <span class="right_Gunaso"> Nepal</span>
+                </div>
+            </div>
+            <div id="right-side-of-nav">
+                <div class="quickies">
+                    <!-- GO TO HOMEPAGE -->
+                    <a href="/homepage">
+                        <button class="buttons-quicks">Home</button>
+                    </a>
+
+                    <!-- GO TO SUBMISSION -->
+                    <a href="/submit">
+                        <button class="buttons-quicks" id="home-link">Submit Guanso</button>
+                    </a>
+
+                    <!-- GO TO TRENDING -->
+                    <a href="/trending">
+                        <button class="buttons-quicks">Trending Gunaso</button>
+                    </a>
+
+                    <!-- GO TO HOT NEWS -->
+                    <a href="/hotnews">
+                        <button class="buttons-quicks">Hot News</button>
+                    </a>
+
+                    <!-- GO TO SUPPORT US -->
+                    <a href="/support">
+                        <button class="buttons-quicks">Support Us</button>
+                    </a>
+
+                    <!-- GO TO FEEDBACK -->
+                    <a href="/feedback">
+                        <button class="buttons-quicks">Feedback</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="main-body1">
+            <div class="heads-text">
+                <div class="main-one-head-text">
+                    <span class="header-text-black heads1">Submit Your</span>
+                    <span class="header-text-red heads1">Gunaso</span>
+                </div>
+                <span class="subtitle-head">Your voice matters. Share your concerns anonymously and safely.</span>
+            </div>
+            <div class="main-form">
+                <form method="Post" class="form-main" enctype ="multipart/form-data" action="/api/gunaso" >
+                    <div class="get-inform">
+                        <div class="category">
+                            <div class="main-category-head">
+                                <span id="main-one-cate" class="main-head-type main-one-cate ">Category</span>
+                                <span id="optiona-category" class="main-head-type optiona-category">(Optional)</span>
+                                <div class="choose-category">
+                                    <input type="button" value="Corruption" class="selecting-category-btn">
+                                    <input type="button" value="Public Services" class="selecting-category-btn">
+                                    <input type="button" value="Infrastructure" class="selecting-category-btn">
+                                    <input type="button" value="Healthcare" class="selecting-category-btn">
+                                    <input type="button" value="Education" class="selecting-category-btn">
+                                    <input type="button" value="Transportation" class="selecting-category-btn">
+                                    <input type="button" value="Environment" class="selecting-category-btn">
+                                    <input type="button" value="Other" class="selecting-category-btn">
+                                </div>
+
+                                <input type="hidden" name="category" id="categoryInput">
+                                
+                            </div>
+                        </div>
+                        <div class="description-complaint">
+                            <div class="desc-head">
+                                <span class="desc-head-title desc-head-title1">Your complaint</span>
+                                <span class="desc-head-title desc-head-title2">*</span>
+                            </div>
+                            <div class="input-desc">
+                                <textarea class="input-desc-gunaso" name="description"
+                                    placeholder="Describe your complaint in detail..."></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="upload-files description-complaint">
+
+                            <div class="head-upload">
+                                <span class="main-head-type main-one-cate">Upload Photos/Videos</span>
+                                <span class="main-head-type optiona-category">(Up to 6 files)</span>
+                            </div>
+
+                            <div class="input-files">
+                                <label style="display:flex; flex-direction:column; align-items:center; cursor:pointer;">
+                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="crimson" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M12 5v9m-5 0H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2M8 9l4-5 4 5m1 8h.01" />
+                                    </svg>
+                                    <input type="file" class="upload-files-place"
+                                        accept="image/png, image/jpeg, video/mp4, video/quicktime" multiple hidden name="files" >
+                                    <span class="click-to-upload">Click to upload
+                                        files</span>
+                                </label>
+                                <div class="file-list" style="margin-top:10px; font-size:14px; color:#333;"></div>
+                            </div>
+                        </div>
+                        <div class="send-infor-btn1">
+                            <button class="send-infor-btn2">
+                                <svg id="Layer_12" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 122.56 122.88">
+                                    <title>sent</title>
+                                    <path
+                                        d="M112.27,10.31l-99,38.07,30,14.37L89.21,33.18,60.44,80.53l14,29.06,37.81-99.28ZM2.42,44.49,117.16.37a3.73,3.73,0,0,1,3-.12,3.78,3.78,0,0,1,2.19,4.87L78.4,120.45a3.78,3.78,0,0,1-6.92.3l-22.67-47L2.14,51.39a3.76,3.76,0,0,1,.28-6.9Z" />
+                                </svg>
+
+                                <span>Submit Gunaso Anonymously</span>
+                            </button>
+
+                            <span class="small-text-after-end">
+                                🔒 Your submission is completely anonymous. We do not collect any personal information.
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- FOOTERS -->
+            <div class="main-foot">
+
+
+                <div class="footers">
+                    <div class="abt-us">
+                        <div class="abt-us-main head-footers">
+                            <h3>About Gunaso Nepal</h3>
+                        </div>
+                        <div class="abt-us-side side-footers">
+                            A platform for Nepalis to share their concerns anonymously and safely. Together, we
+                            amplify voices for positive change.
+                        </div>
+                    </div>
+                    <div class="quickis3">
+                        <div class="quick3-main head-footers">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <div class="quick3-side side-footers">
+                            <!-- HOME PAGE -->
+                            <a href="/homepage">
+                                <button class="footer-nav side-footers">Home</button>
+                            </a>
+
+                            <!-- Submsision -->
+                            <a href="/submit">
+                                <button class="footer-nav side-footers">Submit Gunaso</button>
+                            </a>
+
+                            <!-- Trending -->
+                            <a href="/trending">
+                                <button class="footer-nav side-footers">Trending Gunaso</button>
+                            </a>
+
+                            <!-- Support us -->
+                            <a href="/support">
+                                <button class="footer-nav side-footers">Support Us</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="touch">
+                        <div class="touch-main head-footers">
+                            <h3>Get In Touch</h3>
+                        </div>
+                        <div class="touch-side side-footers">
+                            Have questions or concerns? We're here to help.
+
+                            <!-- FEEDBACK -->
+                            <a href="/feedback">
+                                <button id="send-feed-foot">
+                                    Send Feedback
+                                </button>
+                            </a>
+                            <!-- END  -->
+                        </div>
+
+
+                    </div>
+                </div>
+                <hr class="divide-and-rule">
+                <div class="copyrights">
+                    <span>© 2024 Gunaso Nepal. Made with ❤️ for Nepal.</span>
+                    <span>🇳🇵 Your Voice, Your Way – Share Gunaso Anonymously 🇳🇵</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/submit.js"></script>
+
+</html>
