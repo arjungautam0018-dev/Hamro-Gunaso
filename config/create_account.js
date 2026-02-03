@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
 
-const connect_Db_register = async()=> {
-    try {
-        await mongoose.connect(
-            "mongodb://127.0.0.1:27017/registeraccount_gunaso"  
-        );
-        console.log("Mongoose for creating account successfully connected");
-    } catch (error) {
-        console.log("MongoDB connection for registering failed", error);
-    }
-}
+const connect_Db_register = async () => {
+  try {
+    if (mongoose.connection.readyState === 1) return; // already connected
 
-module.exports = {connect_Db_register};
+    await mongoose.connect(process.env.atlas_url);
+    console.log("Mongoose for creating account successfully connected");
+  } catch (error) {
+    console.error("MongoDB connection for registering failed", error);
+    process.exit(1);
+  }
+};
+
+module.exports = { connect_Db_register };

@@ -2,12 +2,12 @@ const express = require("express");
 const router = express.Router();
 const upload = require("../middlewares/uploads");
 const Gunaso_Submit = require("../models/submit_gunaso");
-const {connectDb_submit}= require("../config/db_submit");
+
 
 const isLoggedIn = require("../middlewares/isloggedin");
 
 
-connectDb_submit();
+
 
 router.post(
     "/gunaso",

@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const {connect_Db_register} = require("../config/create_account");
 const Register_acc = require("../models/create_account");
 const bcrypt = require("bcrypt");
 
@@ -24,7 +23,9 @@ router.post("/create_acc", async(req,res)=> {
         console.log("Successfully saved the informations")
         
     } catch (error) {
-        res.json("Failed to register", err);
+        console.error("Signup error", error);
+        res.status(500).json({ message: "Failed to register", error: error.message });
+
     }
 
 });

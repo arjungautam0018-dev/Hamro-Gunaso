@@ -2,9 +2,14 @@ const express = require("express");
 const path = require("path");
 const multer = require("multer");
 const session = require("express-session");
+require("dotenv").config();
 
 const app = express();
 const PORT = 3000;
+
+// DATABASES CONNECTION
+const {connect_Db_register} = require("./config/create_account");
+connect_Db_register();
 
 // multer setup
 app.use("/uploads", express.static("uploads"));
@@ -28,7 +33,6 @@ app.use(session({
 }));
 
 // SESSION SETUP FOR ADMIN
-require("dotenv").config();
 app.use("/admin",session({
   name: "adminSession",
   secret: process.env.ADMIN_SESSION_SECRET,
