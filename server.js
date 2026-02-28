@@ -126,6 +126,11 @@ app.get("/admin/dashboard", require("./routes/admin_login").isAdmin, (req,res)=>
     res.sendFile(path.join(__dirname, "public", "html", "admin_dashboard.html"))
 });
 
+//Serve profile page
+app.get("/profile", (req,res)=>{
+    res.sendFile(path.join(__dirname,"public", "html", "profile.html"))
+});
+
 // Use router for login/logout
 app.use("/admin", require("./routes/admin_login"));
 
