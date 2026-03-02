@@ -516,35 +516,48 @@ border-radius: 5px;
 
 }
 
-/* =====================================================
-                NAVBAR RESPONSIVE
-===================================================== */
 
-/* tablets */
-@media (max-width:900px){
-
-    .buttons-quicks{
-        font-size:16px;
-        padding:7px 9px;
-    }
-
-    #left-navimg{
-        height:42px;
-    }
+.nav-bar{
+    position:relative;
 }
 
+.menu-toggle{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+}
 
-/* phones */
+#right-side-of-nav{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
 @media (max-width:700px){
+        .nav-bar{
+        flex-direction:row;   /* ✅ keep horizontal */
+        justify-content:space-between;
+        align-items:center;
+    }
 
+    #left-side-of-nav{
+        flex-direction:row;
+        align-items:center;
+    }
+
+    #right-side-of-nav{
+        display:flex;
+        align-items:center;
+        gap:10px;
+    }
     .menu-toggle{
         display:block;
     }
 
     .quickies{
         position:absolute;
-        top:75px;
-        right:15px;
+        top:70px;
+        right:10px;
         background:white;
         flex-direction:column;
         width:220px;
@@ -552,7 +565,6 @@ border-radius: 5px;
         border-radius:14px;
         box-shadow:0 15px 35px rgba(0,0,0,0.15);
         display:none;
-        animation:fadeIn .25s ease;
         z-index:1000;
     }
 
@@ -563,26 +575,5 @@ border-radius: 5px;
     .buttons-quicks{
         width:100%;
         text-align:left;
-        padding:12px;
-        border-radius:10px;
-    }
-
-    #right-side-of-nav{
-        display:flex;
-        align-items:center;
-        gap:15px;
-    }
-}
-
-
-/* animation */
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(-10px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
     }
 }
