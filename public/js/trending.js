@@ -1,4 +1,6 @@
-
+function toggleMenu(){
+    document.querySelector(".quickies").classList.toggle("show");
+}
 function addImageOverlays() {
     const containers = document.querySelectorAll(".images-show");
     

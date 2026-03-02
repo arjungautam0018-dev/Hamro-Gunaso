@@ -1,3 +1,6 @@
+function toggleMenu(){
+    document.querySelector(".quickies").classList.toggle("show");
+}
 const fileInput = document.querySelector(".upload-files-place");
 const fileListContainer = document.querySelector(".file-list");
 

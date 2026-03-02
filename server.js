@@ -11,18 +11,6 @@ const PORT = 3000;
 const {connect_Db_register} = require("./config/create_account");
 connect_Db_register();
 
-// multer setup
-app.use("/uploads", express.static("uploads"));
-
-// Serve public folder
-app.use(express.static(path.join(__dirname,"public")));
-
-// USE NEWER VERSION
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-// SESSION SETUP FOR USER
-
 app.use(session({
     secret:"super_secret_key",
     resave:false,
@@ -31,6 +19,32 @@ app.use(session({
         maxAge:1000*60*60
     }
 }));
+
+//ROUTE FOR SESSION DATA
+app.get("/api/session", (req,res)=>{
+        console.log("➡️ /api/session HIT! Session object:", req.session);
+
+    if(!req.session.user){
+        return res.json({ loggedIn:false });
+    }
+
+    res.json({
+        loggedIn:true,
+        user:req.session.user
+    });
+});
+// multer setup
+app.use("/uploads", express.static("uploads"));
+
+// Serve public folder
+app.use(express.static(path.join(__dirname,"public")));
+// SESSION SETUP FOR USER
+
+
+// USE NEWER VERSION
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 
 // SESSION SETUP FOR ADMIN
 app.use("/admin",session({

@@ -1,0 +1,367 @@
+body{
+    margin: 0;
+}
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 0px 30px;
+}
+#left-side-of-nav {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+#right-side-of-nav{
+    padding: 10px 20px;
+}
+
+#left-navimg {
+    height: 50px;
+    width: auto;
+    margin-right: 0px;
+}
+.left_Gunaso, .right_Gunaso {
+    margin: 0 0px;
+    font-family: Arial, sans-serif;
+}
+.left_Gunaso{
+    color: rgb(220, 20, 60);
+    font-weight: 700;
+    font-size: 21px;
+}
+.right_Gunaso{
+    color: rgb(0, 56, 147);
+    font-weight: 700;
+    font-size: 21px;
+}
+.buttons-quicks{
+    padding: 8px 10px;
+    border-radius: 12px;
+    background-color: white;
+    border: none;
+    font-size: 18px;
+    min-width: 80px;
+    margin: 0 0px;
+    font-family: Arial, sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+}
+.buttons-quicks:hover{
+    background-color: whitesmoke;
+}
+#home-link{
+    color: white;
+    background-color: crimson;
+    font-weight: 700;
+    
+}
+.quickies{
+    display: flex;
+    gap: 10px;
+}
+.divider {
+    border: none;
+    height: 3px;
+    background-color: rgb(0, 56, 147);
+    border-radius: 2px;
+    margin: 5px 0;
+    width: 100%; 
+}
+.profile-svg{
+    height: 37px;
+    margin: 0px;
+}
+
+
+/* ---------- GOOGLE FONT FEEL (system fallback stack) ---------- */
+body{
+    font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background:#f1f5f9;
+    margin:0;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ---------- WRAPPER ---------- */
+.profile-wrapper{
+    max-width:900px;
+    margin:50px auto;
+    padding:0 18px;
+}
+
+
+/* ---------- PROFILE CARD ---------- */
+.profile-card{
+    background:white;
+    padding:26px 28px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    transition:.25s ease;
+}
+
+.profile-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px rgba(0,0,0,0.08);
+}
+
+.profile-name{
+    margin:0;
+    font-size:24px;
+    font-weight:700;
+    letter-spacing:.3px;
+    color:#0f172a;
+}
+
+.profile-handle{
+    margin-top:6px;
+    font-size:14px;
+    color:#64748b;
+    font-weight:500;
+}
+
+
+/* ---------- LOGOUT BUTTON ---------- */
+.logout-btn{
+    background:linear-gradient(135deg,#e11d48,#be123c);
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:600;
+    font-size:15px;
+    transition:.25s;
+}
+
+.logout-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 6px 15px rgba(225,29,72,0.35);
+}
+
+
+/* ---------- GUNASO CARD ---------- */
+.gunaso-card{
+    background:white;
+    padding:28px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+
+/* header */
+.gunaso-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.gunaso-header h3{
+    margin:0;
+    font-size:22px;
+    font-weight:700;
+    color:#020617;
+}
+
+.gunaso-count{
+    background:#e2e8f0;
+    padding:6px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    color:#334155;
+}
+
+
+/* ---------- ITEMS ---------- */
+.gunaso-item{
+    border:1px solid #e2e8f0;
+    padding:20px;
+    border-radius:14px;
+    margin-bottom:18px;
+    transition:.25s;
+}
+
+.gunaso-item:hover{
+    background:#f8fafc;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.05);
+    cursor:pointer;
+}
+
+.gunaso-title{
+    font-size:17px;
+    font-weight:650;
+    margin-bottom:8px;
+    color:#0f172a;
+}
+
+.gunaso-date{
+    font-size:13.5px;
+    color:#64748b;
+    font-weight:500;
+}
+
+
+
+/* =====================================================
+                📱 MOBILE RESPONSIVE
+===================================================== */
+
+/* tablets */
+@media (max-width:900px){
+
+    .profile-wrapper{
+        margin:35px auto;
+    }
+
+    .profile-card{
+        padding:22px;
+    }
+
+    .gunaso-card{
+        padding:22px;
+    }
+}
+
+
+/* phones */
+@media (max-width:600px){
+
+    .profile-card{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+    }
+
+    .logout-btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .gunaso-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .profile-name{
+        font-size:21px;
+    }
+
+    .gunaso-header h3{
+        font-size:20px;
+    }
+
+    .gunaso-title{
+        font-size:16px;
+    }
+
+}
+
+
+/* small phones */
+@media (max-width:400px){
+
+    .profile-wrapper{
+        padding:0 12px;
+    }
+
+    .profile-name{
+        font-size:19px;
+    }
+
+    .logout-btn{
+        font-size:14px;
+        padding:10px;
+    }
+
+    .gunaso-card{
+        padding:18px;
+    }
+
+}
+
+/* ---------- HAMBURGER ICON ---------- */
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+    user-select:none;
+}
+
+
+/* =====================================================
+                NAVBAR RESPONSIVE
+===================================================== */
+
+/* tablets */
+@media (max-width:900px){
+
+    .buttons-quicks{
+        font-size:16px;
+        padding:7px 9px;
+    }
+
+    #left-navimg{
+        height:42px;
+    }
+}
+
+
+/* phones */
+@media (max-width:700px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .quickies{
+        position:absolute;
+        top:75px;
+        right:15px;
+        background:white;
+        flex-direction:column;
+        width:220px;
+        padding:15px;
+        border-radius:14px;
+        box-shadow:0 15px 35px rgba(0,0,0,0.15);
+        display:none;
+        animation:fadeIn .25s ease;
+        z-index:1000;
+    }
+
+    .quickies.show{
+        display:flex;
+    }
+
+    .buttons-quicks{
+        width:100%;
+        text-align:left;
+        padding:12px;
+        border-radius:10px;
+    }
+
+    #right-side-of-nav{
+        display:flex;
+        align-items:center;
+        gap:15px;
+    }
+}
+
+
+/* animation */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

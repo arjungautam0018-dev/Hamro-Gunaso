@@ -483,3 +483,73 @@ border-radius: 5px;
     height: 37px;
     margin: 0px;
 }
+/* =====================================================
+                NAVBAR RESPONSIVE
+===================================================== */
+
+/* tablets */
+@media (max-width:900px){
+
+    .buttons-quicks{
+        font-size:16px;
+        padding:7px 9px;
+    }
+
+    #left-navimg{
+        height:42px;
+    }
+}
+
+
+/* phones */
+@media (max-width:700px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .quickies{
+        position:absolute;
+        top:75px;
+        right:15px;
+        background:white;
+        flex-direction:column;
+        width:220px;
+        padding:15px;
+        border-radius:14px;
+        box-shadow:0 15px 35px rgba(0,0,0,0.15);
+        display:none;
+        animation:fadeIn .25s ease;
+        z-index:1000;
+    }
+
+    .quickies.show{
+        display:flex;
+    }
+
+    .buttons-quicks{
+        width:100%;
+        text-align:left;
+        padding:12px;
+        border-radius:10px;
+    }
+
+    #right-side-of-nav{
+        display:flex;
+        align-items:center;
+        gap:15px;
+    }
+}
+
+
+/* animation */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
