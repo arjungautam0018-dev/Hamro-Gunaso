@@ -1,33 +1,55 @@
 function toggleMenu(){
     document.querySelector(".quickies").classList.toggle("show");
 }
-
-async function getUserId() {
+document.addEventListener("DOMContentLoaded", ()=>{
+    load_data();
+});
+async function load_data(){
     try {
-        const res = await fetch("/api/session", { credentials: "same-origin" });
+        const res = await fetch("/api/data", {
+            method:"POST",
+        });
         const data = await res.json();
-
-        if (!data.loggedIn) {
+        if(data.loggedIn){
+            const item = data.user;
+            createProfile(item);
+        }
+        else{
             console.log("User not logged in");
-            return null;
+            window.location.href = "/login";
         }
 
-        const userId = data.user.id; // <-- this is your user ID
-        console.log("User ID:", userId);
-
-        return userId;
-
-    } catch (err) {
-        console.error("Error getting session:", err);
-        return null;
+    } catch (error) {
+        console.log(error);
     }
 }
 
-// Example usage
-document.addEventListener("DOMContentLoaded", async () => {
-    const userId = await getUserId();
-    if (userId) {
-        // do something with the ID, e.g., fetch user-specific data
-        console.log("We can now use this ID in frontend:", userId);
+function createProfile(item){
+    const wrapper = document.querySelector(".profile-card");
+    wrapper.innerHTML = `
+            <div>
+            <h2 class="profile-name" id="username">${item.full_name}</h2>
+            <p class="profile-handle">${item.display_name} • ${item.email}</p>
+        </div>
+
+        <button class="logout-btn">Logout</button>
+    `
+}
+
+document.addEventListener("click", async(e)=>{
+    if(e.target.classList.contains("logout-btn")){
+        try {
+            const res = await fetch("/logout", {
+                method:"POST"
+            });
+            const data = await res.json();
+            if(data.message === "Logout successful"){
+                window.location.href = "/login";
+            }
+
+        } catch (error) {
+            console.error(error);
+        }
     }
 });
+

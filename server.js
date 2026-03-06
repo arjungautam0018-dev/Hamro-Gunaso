@@ -25,6 +25,7 @@ app.get("/api/session", (req,res)=>{
         console.log("➡️ /api/session HIT! Session object:", req.session);
 
     if(!req.session.user){
+        console.log("User not logged in");
         return res.json({ loggedIn:false });
     }
 

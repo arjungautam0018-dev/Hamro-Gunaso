@@ -24,6 +24,7 @@ router.post("/login_verify", async(req,res)=> {
             id: user._id,
             email:user.email_address,
             display_name:user.display_name,
+            full_name:user.full_name,
         };
         console.log("Login succesfull, session created for the user", email_address, user._id);
         res.redirect("/homepage")
@@ -33,4 +34,35 @@ router.post("/login_verify", async(req,res)=> {
         res.status(500).json({ message: "Login failed" });
     }
 });
+router.post("/api/data", async(req,res)=>{
+    try {
+        console.log("🔥 /api/data HIT");
+        if(!req.session.user){
+            console.log("User not logged in");
+            return res.status(401).json({message:"Unauthorized"});
+        }     
+        const userData = {
+            email:req.session.user.email,
+            display_name:req.session.user.display_name,
+            full_name:req.session.user.full_name,
+            
+        }
+        res.json({message:"Data retrieved successfully",loggedIn: true, user: userData});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({message:"Failed to retrieve data"});
+    }
+});
+
+// Logout route
+router.post("/logout", async(req,res)=>{
+    try {
+        await req.session.destroy();
+        res.json({message:"Logout successful"});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({message:"Logout failed"});
+    }
+})
+
 module.exports = router;
