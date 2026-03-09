@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const submit_gunaso_schema1 = new mongoose.Schema({
+    id:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Register_acc",
+        required: true
+    },
     category: {
         type: String
     },
