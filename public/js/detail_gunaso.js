@@ -135,10 +135,17 @@ function attachShareHandler(gunasoId) {
 
 
 function renderImages(files = []){
-    if (!Array.isArray(files) || files.length === 0) return "";
 
-    return files.slice(0, 6).map(file => `
-        <img src="/${file.path}" class="model-image">
+    if(!Array.isArray(files) || files.length === 0) return "";
+
+    window.galleryImages = files.map(f => `/${f.path}`);
+
+    return files.map((file,index)=>`
+        <img 
+        src="/${file.path}" 
+        class="model-image"
+        onclick="openViewer(${index})"
+        >
     `).join("");
 }
 
@@ -254,3 +261,99 @@ async function loadComments(gunasoId){
         
     }
 }
+
+
+
+let currentImageIndex = 0;
+
+function openViewer(index){
+
+    const viewer = document.getElementById("imageViewer");
+    const img = document.getElementById("viewerImage");
+
+    currentImageIndex = index;
+
+    viewer.style.display = "flex";
+
+    img.src = window.galleryImages[currentImageIndex];
+}
+
+function showNext(){
+
+    currentImageIndex++;
+
+    if(currentImageIndex >= window.galleryImages.length){
+        currentImageIndex = 0;
+    }
+
+    document.getElementById("viewerImage").src =
+        window.galleryImages[currentImageIndex];
+}
+
+function showPrev(){
+
+    currentImageIndex--;
+
+    if(currentImageIndex < 0){
+        currentImageIndex = window.galleryImages.length - 1;
+    }
+
+    document.getElementById("viewerImage").src =
+        window.galleryImages[currentImageIndex];
+}
+
+document.getElementById("nextBtn").onclick = showNext;
+document.getElementById("prevBtn").onclick = showPrev;
+
+document.querySelector(".close-viewer").onclick = ()=>{
+    document.getElementById("imageViewer").style.display = "none";
+};
+
+const viewerImage = document.getElementById("viewerImage");
+
+viewerImage.addEventListener("click", ()=>{
+    viewerImage.classList.toggle("zoomed");
+});
+
+document.addEventListener("keydown",(e)=>{
+
+    const viewer = document.getElementById("imageViewer");
+
+    if(viewer.style.display !== "flex") return;
+
+    if(e.key === "ArrowRight"){
+        showNext();
+    }
+
+    if(e.key === "ArrowLeft"){
+        showPrev();
+    }
+
+    if(e.key === "Escape"){
+        viewer.style.display = "none";
+    }
+
+});
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+const viewer = document.getElementById("imageViewer");
+
+viewer.addEventListener("touchstart",(e)=>{
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+viewer.addEventListener("touchend",(e)=>{
+
+    touchEndX = e.changedTouches[0].screenX;
+
+    if(touchEndX < touchStartX - 50){
+        showNext();
+    }
+
+    if(touchEndX > touchStartX + 50){
+        showPrev();
+    }
+
+});
