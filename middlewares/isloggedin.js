@@ -1,3 +1,4 @@
+//For other
 module.exports = function isLoggedIn(req,res,next){
     if(!req.session.user){
         // For API requests, return 401
@@ -6,7 +7,7 @@ module.exports = function isLoggedIn(req,res,next){
             
         }
         // Normal browser request
-        return res.redirect("/login");
+        return res.json({ message: "Login required" });
     }
     next();
 }

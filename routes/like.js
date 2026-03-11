@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Gunaso_Like = require("../models/like_gunaso");
-const isLoggedIn = require("../middlewares/isloggedin");
+const isLoggedIn = require("../middlewares/comments_isloggedin"); //Uses another not isloggedin middleware
 const Gunaso = require("../models/submit_gunaso");
 
 

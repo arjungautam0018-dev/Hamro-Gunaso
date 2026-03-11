@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Gunaso = require("../models/submit_gunaso");
 const Comment = require("../models/create_comment");
-const isloggedin = require("../middlewares/isloggedin");
+const isloggedin = require("../middlewares/comments_isloggedin"); //Use another comment_isloggedin not isloggedin one
 const accounts = require("../models/create_account");
 
 router.post("/api/gunaso/:id/comment", isloggedin, async(req,res)=>{

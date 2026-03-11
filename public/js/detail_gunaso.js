@@ -183,12 +183,15 @@ function attachLikeHandler(gunasoId){
             const res = await fetch(`/api/gunaso/${gunasoId}/like`, {
                 method: "POST",
             });
-            if(res.status === 401) {
-                window.location.href = "/login";
+            const data = await res.json();
+            if(!res.ok){
+                console.log(data.message);
+                showMessage(data.message);
                 return;
             }
-            if(!res.ok) throw new Error("Network response was not ok");
-            const data = await res.json();
+            showMessage(data.liked ? "You liked this post!": "You unliked this post!");
+            loadGunaso();
+            
             if(data.totalLikes !== undefined){
                 likeCountSpan.textContent = data.totalLikes;
             }
@@ -215,14 +218,17 @@ function attachCommentHandler(gunasoId){
                 },
                 body: JSON.stringify({ commentText })
             });
-            if(res.status === 401) {
-                window.location.href = "/login";
+
+            const data = await res.json();
+            if(!res.ok){
+                console.log(data.message);
+                showMessage(data.message);
                 return;
             }
-            if(!res.ok) throw new Error("Network response was not ok");
-            const data = await res.json();
-            alert("Comment added successfully!");
+            
+            showMessage("Comment added successfully!");
             document.getElementById("comment-input").value = "";
+            loadComments(gunasoId);
         } catch (error) {
             console.error("Comment error:", error);
         }
@@ -242,6 +248,10 @@ async function loadComments(gunasoId){
         const container = document.getElementById("comment-container");
 
         container.innerHTML = "";
+        if(comments.length ==0){
+            container.innerHTML = "<p>No comments yet. Be the first to comment! </p>";
+            return;
+        }
         comments.forEach(element => {
             const div = document.createElement("div");
             div.className = "single-comment";
@@ -357,3 +367,15 @@ viewer.addEventListener("touchend",(e)=>{
     }
 
 });
+
+
+function showMessage(text){
+    const box = document.getElementById("message-box");
+
+    box.textContent = text;
+    box.classList.add("show");
+
+    setTimeout(()=>{
+        box.classList.remove("show");
+    },3000);
+}
